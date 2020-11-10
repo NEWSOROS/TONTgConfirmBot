@@ -8,7 +8,7 @@ This is telegram bot for transaction confirmation.
  2. Send to your new bot command /start and go to the next step
  3. Run command below
 ```sh
-$ cd $HOME && git clone -v https://github.com/anvme/TONTgConfirmBot.git tontgconfirmbot && cd ./tontgconfirmbot && chmod +x ./install.sh
+$ cd $HOME && git clone -v https://github.com/NEWSOROS/TONTgConfirmBot.git tontgconfirmbot && cd ./tontgconfirmbot && chmod +x ./install.sh
 ```
  4. Run 
  ```sh
