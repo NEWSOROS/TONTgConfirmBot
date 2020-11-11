@@ -15,7 +15,7 @@ if [ ! -f $IDDAT ]; then
 fi
 #tc=$(curl -s -L https://api.github.com/repos/tonlabs/tonos-cli/releases/latest | grep upload_url | cut -d '"' -f 4)
 #wget -qO- $tc | tar -zxvf -
-wget -qO- https://github.com/tonlabs/tonos-cli/releases/download/v0.1.25/tonos-cli_v0.1.25_linux.tar.gz | tar -zxvf -
+wget -qO- https://github.com/tonlabs/tonos-cli/releases/download/v0.1.13/tonos-cli_v0.1.13_linux.tar.gz | tar -zxvf -
 
 # abi & tvc 
 wget https://raw.githubusercontent.com/tonlabs/ton-labs-contracts/master/solidity/safemultisig/SafeMultisigWallet.abi.json
