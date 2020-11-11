@@ -28,7 +28,3 @@ When bot send you information about new transaction, just reply to him with simp
 Example:
 
 /confirm 0x5f19e9eceb3585c1
-
-## Donate
-
-Free TON 0:7ccbe4a3bfac4afd44b20d8042925af13a9fc5aeaec1d600dadd70798f64d9ad
