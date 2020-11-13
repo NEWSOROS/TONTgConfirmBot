@@ -3,6 +3,7 @@
 sudo apt update
 sudo apt -y install python3-pip
 pip3 install --upgrade pyTelegramBotAPI
+pip3 install --upgrade ton-client-py
 
 
 # bot directory
