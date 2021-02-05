@@ -48,11 +48,13 @@ def cnfrm(message):
       confrmcmd = "cd " + config.tontgcpath + " && ./tonos-cli call " + config.wallet + " confirmTransaction '{\"transactionId\":\"" + trid + "\"}' --abi SafeMultisigWallet.abi.json --sign \"" + config.seed + "\""
       confrmcmd = str(subprocess.check_output(confrmcmd, shell = True, encoding='utf-8',timeout=60))
       if "Succeeded" in confrmcmd:
-        bot.send_message(config.tg, text="Succeeded " + trid,parse_mode="Markdown")
+        bot.send_message(config.tg, text="\U00002705 Succeeded " + trid,parse_mode="Markdown")
       else:
-        bot.send_message(config.tg, text="Confirmation error " + trid,parse_mode="Markdown")
+        bot.send_message(config.tg, text="\U0000274C Confirmation error " + trid,parse_mode="Markdown")
+        subprocess.call(['sed','-i','/'+trid+'/d', config.tontgcpathdb+'/id.dat'])
     except:
-      bot.send_message(config.tg, text="Confirmation error " + trid,parse_mode="Markdown")
+      bot.send_message(config.tg, text="\U0000274C Confirmation error " + trid,parse_mode="Markdown")
+      subprocess.call(['sed','-i','/'+trid+'/d', config.tontgcpathdb+'/id.dat'])
 
 def cnfrmbtn(tid):
   try:
@@ -62,20 +64,24 @@ def cnfrmbtn(tid):
     if "Succeeded" in confrmcmd:
       pass
     else:
-      bot.send_message(config.tg, text="Confirmation error " + tid,parse_mode="Markdown")
+      bot.send_message(config.tg, text="\U0000274C Confirmation error " + tid,parse_mode="Markdown")
+      subprocess.call(['sed','-i','/'+tid+'/d', config.tontgcpathdb+'/id.dat'])
   except:
-    bot.send_message(config.tg, text="Confirmation error " + tid,parse_mode="Markdown")
+    bot.send_message(config.tg, text="\U0000274C Confirmation error " + tid,parse_mode="Markdown")
+    subprocess.call(['sed','-i','/'+tid+'/d', config.tontgcpathdb+'/id.dat'])
 
 def autocnfrm(tdest,tid):
   try:
     confrmcmd = "cd " + config.tontgcpath + " && ./tonos-cli call " + config.wallet + " confirmTransaction '{\"transactionId\":\"" + tid + "\"}' --abi SafeMultisigWallet.abi.json --sign \"" + config.seed + "\""
     confrmcmd = str(subprocess.check_output(confrmcmd, shell = True, encoding='utf-8',timeout=60))
     if "Succeeded" in confrmcmd:
-      bot.send_message(config.tg, text="Auto Succeeded to " + tdest + "\nTransaction id:" + tid,parse_mode="Markdown")
+      bot.send_message(config.tg, text="\U00002705 Auto Succeeded to " + tdest + "\nTransaction id: " + tid,parse_mode="Markdown")
     else:
-      bot.send_message(config.tg, text="Auto confirmation error to " + tdest + "\nTransaction id:" + tid,parse_mode="Markdown")
+      bot.send_message(config.tg, text="\U0000274C Auto confirmation error to " + tdest + "\nTransaction id: " + tid,parse_mode="Markdown")
+      subprocess.call(['sed','-i','/'+tid+'/d', config.tontgcpathdb+'/id.dat'])
   except:
-    bot.send_message(config.tg, text="Auto confirmation error too " + tdest + "\nTransaction id:" + tid,parse_mode="Markdown")
+    bot.send_message(config.tg, text="\U0000274C Auto confirmation error to " + tdest + "\nTransaction id: " + tid,parse_mode="Markdown")
+    subprocess.call(['sed','-i','/'+tid+'/d', config.tontgcpathdb+'/id.dat'])
 
 
 def NewTransMonitoring():
